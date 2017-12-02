@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/index';
 
 const appRoutes: Routes = [
-    { path: 'login', component: LoginComponent }
+    { path: 'login', component: LoginComponent },
 
     // otherwise redirect to home
     { path: '**', redirectTo: '' }
