@@ -5,6 +5,9 @@ const path = require('path');
 const http = require('http');
 const app = express();
 const db = require('./db');
+db.connect();
+
+
 
 // API file for interacting with DB
 // const api = require('./routes/api');
@@ -21,9 +24,13 @@ app.use(bodyParser.urlencoded({ extended: false}));
 
 // Send all other requests to the Angular app
 app.get('*', (req, res) => {
-	console.log(process.env.DB_USER);
+	console.log(process.env.PGUSER);
+	// db.connect();
+	db.query('SELECT * FROM recruits WHERE recruit_id = 1', (err, res) => {
+	  console.log(err ? err.stack : res.rows[0]); // Hello World!
+	});
     // res.sendFile(path.join(__dirname, 'dist/index.html'));
-    db('recruits').where('recruit_id', 1).then((row) => res.send(row));
+    res.send("hey");
 });
 
 //Set Port
