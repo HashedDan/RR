@@ -24,3 +24,4 @@ function createMember(req, res) {
 		  });
 	})
 }
+
