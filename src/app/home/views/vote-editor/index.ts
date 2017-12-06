@@ -1,0 +1,1 @@
+export * from './vote-editor.component';
