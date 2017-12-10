@@ -7,6 +7,7 @@ import { LoginComponent } from './login/index';
 import { HomeComponent } from './home/index';
 import { DashboardComponent } from './home/views/dashboard/index';
 import { VoteEditorComponent } from './home/views/vote-editor/index';
+import { EventsComponent } from './home/views/events/index';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { VoteEditorComponent } from './home/views/vote-editor/index';
     LoginComponent,
     HomeComponent,
     DashboardComponent,
-    VoteEditorComponent
+    VoteEditorComponent,
+    EventsComponent
   ],
   imports: [
     BrowserModule,
