@@ -1,10 +1,10 @@
 const db = require('../../models/index');
 
 exports.getAll = (req, res, next) => {
-	db.sequelize.query('SELECT * FROM organizations')
+	db.sequelize.query('SELECT * FROM organizations WHERE org_id=1')
 		.then(response => {
 			console.log(response);
-			res.send(response.rows);
+			res.send(response[0]);
 		});
 	// pool.connect()
 	//   .then(client => {
