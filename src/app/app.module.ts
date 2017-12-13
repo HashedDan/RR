@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { AuthGuard } from './_guards/index';
+
 import { routing } from './app.routing';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/index';
@@ -25,7 +27,7 @@ import { VotesComponent } from './home/views/votes/index';
     BrowserModule,
     routing
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

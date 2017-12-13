@@ -1,5 +1,7 @@
 import { Routes, RouterModule } from '@angular/router';
 
+import { AuthGuard } from './_guards/index';
+
 import { LoginComponent } from './login/index';
 import { HomeComponent } from './home/index';
 import { DashboardComponent } from './home/views/dashboard/index';
@@ -16,7 +18,8 @@ const appRoutes: Routes = [
 			{ path: 'vote-editor', component: VoteEditorComponent },
 			{ path: 'events', component: EventsComponent },
 			{ path: 'votes', component: VotesComponent }
-		]
+		],
+		canActivate: [AuthGuard]
 	},
     { path: 'login', component: LoginComponent },
 
