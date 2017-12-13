@@ -5,6 +5,7 @@ import { HomeComponent } from './home/index';
 import { DashboardComponent } from './home/views/dashboard/index';
 import { VoteEditorComponent } from './home/views/vote-editor/index';
 import { EventsComponent } from './home/views/events/index';
+import { VotesComponent } from './home/views/votes/index';
 
 const appRoutes: Routes = [
 	{ 
@@ -13,7 +14,8 @@ const appRoutes: Routes = [
 		children: [
 			{ path: 'dashboard', component: DashboardComponent },
 			{ path: 'vote-editor', component: VoteEditorComponent },
-			{ path: 'events', component: EventsComponent }
+			{ path: 'events', component: EventsComponent },
+			{ path: 'votes', component: VotesComponent }
 		]
 	},
     { path: 'login', component: LoginComponent },

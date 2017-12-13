@@ -8,6 +8,7 @@ import { HomeComponent } from './home/index';
 import { DashboardComponent } from './home/views/dashboard/index';
 import { VoteEditorComponent } from './home/views/vote-editor/index';
 import { EventsComponent } from './home/views/events/index';
+import { VotesComponent } from './home/views/votes/index';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { EventsComponent } from './home/views/events/index';
     HomeComponent,
     DashboardComponent,
     VoteEditorComponent,
-    EventsComponent
+    EventsComponent,
+    VotesComponent
   ],
   imports: [
     BrowserModule,
