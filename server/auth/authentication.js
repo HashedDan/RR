@@ -1,6 +1,7 @@
 const path = require('path');
 const bcrypt = require('bcryptjs');
-const pg = require('pg');
+// const pg = require('pg');
+const db = require('../models/index');
 
 function comparePasswords(userPass, dbPass) {
 	return bcrypt.compareSync(userPass, dbPass);
