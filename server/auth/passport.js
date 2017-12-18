@@ -13,9 +13,23 @@ module.exports = () => {
   });
 
   passport.deserializeUser((id, done) => {
-    const query = client.query('SELECT * FROM members WHERE  member_id = ' + id, (err, results) => {
+  //   const query = client.query('SELECT * FROM members WHERE  member_id = ' + id, (err, results) => {
+		// user = results.rows[0];
+		// return done(null, user);
+  //   })
+  	const query = db.sequelize.query('ELECT * FROM members WHERE  member_id = ' + id, [email], (err, results) => {
+		if (results.rows.length < 1) {
+			return done(null, false);
+		}
 		user = results.rows[0];
-		return done(null, user);
+		if (!authFuncs.comparePasswords(password, user.member_pass)) {
+			return done(null, false);
+		}
+		else {
+			console.log("successful authentification");
+			console.log(user);
+			return done(null, user);
+		}
     })
   });
 
