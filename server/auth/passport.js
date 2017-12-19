@@ -17,7 +17,7 @@ module.exports = () => {
 		// user = results.rows[0];
 		// return done(null, user);
   //   })
-  	const query = db.sequelize.query('ELECT * FROM members WHERE  member_id = ' + id, [email], (err, results) => {
+  	const query = db.sequelize.query('SELECT * FROM members WHERE  member_id = ' + id, [email], (err, results) => {
 		if (results.rows.length < 1) {
 			return done(null, false);
 		}
