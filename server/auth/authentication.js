@@ -33,3 +33,38 @@ function createMember(req, res) {
       res.send(response[0]);
     });
 }
+
+function loginRequired(req, res, next) {
+  if (!req.user) return res.status(401).sendFile(path.join(__dirname, '..', '..', 'client', '401.html'));
+  return next();
+}
+
+function loginRedirect(req, res, next) {
+  if (req.user) return res.status(401).json({ status: 'You are already logged in' });
+  return next();
+}
+
+
+function handleErrors(req) {
+  return new Promise((resolve, reject) => {
+    if (req.body.email.length < 2) {
+      // MODIFY THIS TO MAKE SURE EMAIL IS WELL FORMED
+      reject({
+        message: 'Username must be longer than 6 characters'
+      });
+    } else if (req.body.password.length < 6) {
+      reject({
+        message: 'Password must be longer than 6 characters'
+      });
+    } else {
+      resolve();
+    }
+  });
+}
+
+module.exports = {
+  comparePasswords,
+  createMember,
+  loginRequired,
+  loginRedirect
+};
