@@ -1,6 +1,6 @@
 const db = require('../../models/index');
 const passport = require('../../auth/localconfig.js');
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcrypt');
 
 exports.register = (req, res, next) => {
   const salt = bcrypt.genSaltSync();

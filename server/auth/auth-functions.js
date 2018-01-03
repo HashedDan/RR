@@ -1,5 +1,5 @@
 const path = require('path');
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcrypt');
 // const pg = require('pg');
 const db = require('../models/index');
 
